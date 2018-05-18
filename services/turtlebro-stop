@@ -1,0 +1,8 @@
+#!/bin/bash
+# THIS IS A GENERATED FILE, NOT RECOMMENDED TO EDIT.
+
+PID=$(cat /home/pi/.ros/log/turtlebro.pid)
+logger -p user.info "Attempting to stop turtlebro (PID $PID)"
+kill $PID
+logger -s -p user.info "Waiting for roslaunch process to end"
+while kill -0 $PID 2>/dev/null; do sleep 0.2; done

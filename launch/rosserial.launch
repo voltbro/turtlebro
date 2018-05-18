@@ -1,0 +1,9 @@
+<launch>
+    <arg name="device" default="/dev/ttyACM0"/>
+    <arg name="boud" default="115200"/>
+
+    <node pkg="rosserial_python" type="serial_node.py" name="serial_node" output="log" respawn="true">
+        <param name="port" value="$(arg device)"/>
+        <param name="boud" value="$(arg boud)"/>
+    </node>
+</launch>

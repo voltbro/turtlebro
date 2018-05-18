@@ -1,0 +1,8 @@
+<launch>
+    <arg name="run_rosserial" default="true"/>
+
+    <include file="$(find turtlebro)/launch/rosserial.launch" if="$(arg run_rosserial)">
+	<arg name="device" default="/dev/ttyACM0"/>
+	<arg name="boud" default="115200"/>
+    </include>
+</launch>

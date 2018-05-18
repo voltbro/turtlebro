@@ -1,0 +1,56 @@
+#!/bin/bash
+# THIS IS A GENERATED FILE, NOT RECOMMENDED TO EDIT.
+
+function log() {
+  logger -s -p user.$1 ${@:2}
+}
+
+log info "turtlebro: Using workspace setup file /opt/ros/kinetic/setup.bash"
+source /opt/ros/kinetic/setup.bash
+JOB_FOLDER=/etc/ros/kinetic/turtlebro.d
+
+log_path="/home/pi/.ros/log"
+if [[ ! -d $log_path ]]; then
+  CREATED_LOGDIR=true
+  trap 'CREATED_LOGDIR=false' ERR
+    log warn "turtlebro: The log directory you specified \"$log_path\" does not exist. Attempting to create."
+    mkdir -p $log_path 2>/dev/null
+    chown pi:pi $log_path 2>/dev/null
+    chmod ug+wr $log_path 2>/dev/null
+  trap - ERR
+  # if log_path could not be created, default to tmp
+  if [[ $CREATED_LOGDIR == false ]]; then
+    log warn "turtlebro: The log directory you specified \"$log_path\" cannot be created. Defaulting to \"/tmp\"!"
+    log_path="/tmp"
+  fi
+fi
+
+#export ROS_HOSTNAME=$(hostname)
+machine_ip=(`hostname -I`)
+export ROS_IP=${machine_ip[0]}
+#export ROS_IP=`hostname -I`
+
+export ROS_MASTER_URI=http://127.0.0.1:11311
+
+log info "turtlebro: Launching ROS_HOSTNAME=$ROS_HOSTNAME, ROS_IP=$ROS_IP, ROS_MASTER_URI=$ROS_MASTER_URI, ROS_LOG_DIR=$log_path"
+
+LAUNCH_FILENAME=$JOB_FOLDER/turtlebro.launch
+# Warn and exit if setuidgid is missing from the system.
+which setuidgid > /dev/null
+if [ "$?" != "0" ]; then
+  log err "turtlebro: Can't launch as unprivileged user without setuidgid. Please install daemontools package."
+  exit 1
+fi
+
+# Punch it.
+export ROS_HOME=$(echo ~pi)/.ros
+export ROS_LOG_DIR=$log_path
+#setuidgid pi roslaunch $LAUNCH_FILENAME &
+#run all as root
+roslaunch $LAUNCH_FILENAME &
+PID=$!
+
+log info "turtlebro: Started roslaunch as background process, PID $PID, ROS_LOG_DIR=$ROS_LOG_DIR"
+echo "$PID" > $log_path/turtlebro.pid
+
+wait "$PID"
