@@ -5,4 +5,5 @@
 	<arg name="device" value="/dev/ttyACM0"/>
 	<arg name="baud" value="115200"/>
     </include>
+    <include file="$(find turtlebro)/launch/tf_broadcaster.launch"/>
 </launch>
