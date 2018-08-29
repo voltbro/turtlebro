@@ -1,9 +1,16 @@
 <launch>
     <arg name="run_rosserial" default="true"/>
+    <arg name="run_ydlidar" default="true"/>
+    <arg name="run_demo_ball" default="true"/>
+
+    <include file="$(find turtlebro)/launch/demo_ball.launch" if="$(arg run_demo_ball)"/>
 
     <include file="$(find turtlebro)/launch/rosserial.launch" if="$(arg run_rosserial)">
 	<arg name="device" value="/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0012-if00-port0"/>
 	<arg name="baud" value="115200"/>
     </include>
     <include file="$(find turtlebro)/launch/tf_broadcaster.launch"/>
+    <include file="$(find turtlebro)/launch/ydlidar.launch" if="$(arg run_ydlidar)"/>
+
+
 </launch>
