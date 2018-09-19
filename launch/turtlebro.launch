@@ -1,13 +1,16 @@
 <launch>
     <arg name="run_rosserial" default="true"/>
-    <arg name="run_ydlidar" default="true"/>
-    <arg name="run_demo_ball" default="true"/>
+    <arg name="run_ydlidar" default="false"/>
+    <arg name="run_rplidar" default="true"/>
+    <arg name="run_demo_ball" default="false"/>
 
     <include file="$(find turtlebro)/launch/demo_ball.launch" if="$(arg run_demo_ball)"/>
 
     <include file="$(find turtlebro)/launch/rosserial.launch" if="$(arg run_rosserial)"/>
     <include file="$(find turtlebro)/launch/tf_broadcaster.launch"/>
     <include file="$(find turtlebro)/launch/ydlidar.launch" if="$(arg run_ydlidar)"/>
-
+    <include file="$(find turtlebro)/launch/rplidar.launch" if="$(arg run_rplidar)"/>
+    
+    <!--node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 odom base_link 100" /-->
 
 </launch>
