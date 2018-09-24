@@ -215,6 +215,8 @@ install(FILES
 
 install(DIRECTORY
   launch
+  map
+  urdf
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 

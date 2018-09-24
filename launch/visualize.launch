@@ -1,9 +1,7 @@
 <launch>
 
-  <!-- USE: roslaunch my_mira_description urdf_visualize.launch model:='$(find myrobot_package)/urdf/myrobot.urdf' -->
-  <arg name="model" default="$(find turtlebro)/urdf/myrobot.urdf"/>
-
-  <param name="robot_description" command="cat $(arg model)" />
+  <arg name="model" default="$(find turtlebro)/urdf/turtlebro.urdf"/>
+  <param name="robot_description" value="turtlebro"/>
 
   <!-- send fake joint values -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">

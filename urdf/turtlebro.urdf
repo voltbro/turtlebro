@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="myfirst">
+<robot name="turtlebro">
   <material name="green">
         <color rgba="0 0.8 0 1"/>
   </material>
@@ -7,7 +7,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="-0.05 0 0.025"/>
       <geometry>
-      <box size="0.20 0.20 0.04"/>
+        <box size="0.20 0.20 0.04"/>
       </geometry>
       <material name="green"/>
     </visual>
