@@ -14,7 +14,7 @@ from ball_processing import BallProcessing
 
 roslib.load_manifest('turtlebro')
 
-angular_speed = 0.04
+angular_speed = 0.4
 
 rospy.init_node('usb_cam_ball')
 image_pub = rospy.Publisher("image/compressed", CompressedImage, queue_size=1)
@@ -56,14 +56,14 @@ while not rospy.is_shutdown():
     move_cmd = Twist()
     if(params['obj_x'] > 0 and params['obj_y'] > 0 and params['obj_r'] > 5):
         if(params['obj_x'] > 400):
-            move_cmd.angular.z = angular_speed
+            move_cmd.angular.z = -angular_speed
             # if(params['obj_x'] > 500):
             #     move_cmd.angular.z = angular_speed*2
 
             # print('go right')
 
         if(params['obj_x'] < 240):
-            move_cmd.angular.z = -angular_speed
+            move_cmd.angular.z = angular_speed
             # if(params['obj_x'] < 140):
             #     move_cmd.angular.z = -angular_speed*2
             # print('go left')
