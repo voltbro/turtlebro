@@ -2,8 +2,8 @@
     <arg name="run_rosserial" default="true"/>
     <arg name="run_ydlidar" default="false"/>
     <arg name="run_rplidar" default="true"/>
-    <arg name="run_demo_ball" default="true"/>
-    <arg name="run_slam_gmapping" default="true"/>
+    <arg name="run_demo_ball" default="false"/>
+    <arg name="run_slam_gmapping" default="false"/>
 
     <param name="stm_serial_node/wheel_distance" type="double" value="0.20" />
     <!--param name="stm_serial_node/motor_inversion" value="0" /-->

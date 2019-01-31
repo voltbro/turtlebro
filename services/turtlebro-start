@@ -25,11 +25,11 @@ if [[ ! -d $log_path ]]; then
   fi
 fi
 
-#export ROS_HOSTNAME=$(hostname)
 machine_ip=(`hostname -I`)
-export ROS_IP=${machine_ip[0]}
-export ROS_HOSTNAME=${machine_ip[0]}
+export ROS_HOSTNAME=$(hostname)
+#export ROS_HOSTNAME=${machine_ip[0]}
 
+export ROS_IP=${machine_ip[0]}
 #export ROS_IP=`hostname -I`
 
 #export ROS_MASTER_URI=http://127.0.0.1:11311
