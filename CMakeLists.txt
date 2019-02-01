@@ -195,8 +195,6 @@ include_directories(
 
 install(PROGRAMS
   src/odom_tf_broadcaster.py
-  src/demo_ball.py
-  src/ball_processing.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
