@@ -2,17 +2,18 @@
     <arg name="run_rosserial" default="true"/>
     <arg name="run_ydlidar" default="false"/>
     <arg name="run_rplidar" default="true"/>
-    <arg name="run_demo_ball" default="false"/>
+    <arg name="run_uvc_camera" default="false"/>
     <arg name="run_slam_gmapping" default="false"/>
 
     <param name="stm_serial_node/wheel_distance" type="double" value="0.20" />
     <!--param name="stm_serial_node/motor_inversion" value="0" /-->
-
-    <include file="$(find turtlebro)/launch/demo_ball.launch" if="$(arg run_demo_ball)"/>
+    
 
     <include file="$(find turtlebro)/launch/rosserial.launch" if="$(arg run_rosserial)"/>
     <!--include file="$(find turtlebro)/launch/tf_broadcaster.launch"/-->
     <include file="$(find turtlebro)/launch/robot_model.launch"/>
+
+    <include file="$(find turtlebro)/launch/uvc_camera.launch" if="$(arg run_uvc_camera)"/>
 
     <include file="$(find turtlebro)/launch/ydlidar.launch" if="$(arg run_ydlidar)"/>
     <include file="$(find turtlebro)/launch/rplidar.launch" if="$(arg run_rplidar)"/>
