@@ -9,6 +9,8 @@
         <param name="port" value="$(arg stm_device)"/>
         <param name="baud" value="$(arg stm_baud)"/>
         <param name="motor_inversion" value="1"/>
+        <param name="wheel_distance" type="double" value="0.20"/>
+        
 
     </node>
 
