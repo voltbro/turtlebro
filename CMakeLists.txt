@@ -62,6 +62,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_service_files(
    FILES
    PidRegulator.srv
+   BoardInfo.srv
 #   Service2.srv
 )
 
