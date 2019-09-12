@@ -25,15 +25,17 @@ if [[ ! -d $log_path ]]; then
   fi
 fi
 
-machine_ip=(`hostname -I`)
-export ROS_HOSTNAME=$(hostname)
-#export ROS_HOSTNAME=${machine_ip[0]}
+machine_ip=$(hostname  -I | cut -f1 -d' ')
+#machine_ip=(`hostname -I`)
+#export ROS_HOSTNAME=$(hostname)
+export ROS_HOSTNAME=$machine_ip
 
-export ROS_IP=${machine_ip[0]}
+export ROS_IP=$machine_ip
 #export ROS_IP=`hostname -I`
 
 #export ROS_MASTER_URI=http://127.0.0.1:11311
-export ROS_MASTER_URI=http://127.0.0.1:11311
+#export ROS_MASTER_URI=http://127.0.0.1:11311
+export ROS_MASTER_URI=http://$machine_ip:11311
 
 log info "turtlebro: Launching ROS_HOSTNAME=$ROS_HOSTNAME, ROS_IP=$ROS_IP, ROS_MASTER_URI=$ROS_MASTER_URI, ROS_LOG_DIR=$log_path"
 
