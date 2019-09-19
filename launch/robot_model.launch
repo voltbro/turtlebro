@@ -1,9 +1,8 @@
 <launch>
 
-  <arg name="model" default="$(find turtlebro)/urdf/turtlebro.urdf"/>
-  <!--arg name="model" default="$(find turtlebro)/urdf/brover.urdf"/-->
+  <arg name="urdf_model_file" default="$(find turtlebro)/urdf/$(env ROVER_MODEL).urdf" doc="model type [turtlebro, brover]"/>
 
-  <param name="robot_description" command="cat $(arg model)" />
+  <param name="robot_description" command="cat $(arg urdf_model_file)" />
 
   <!-- send fake joint values -->
   <!--node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">

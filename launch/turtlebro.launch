@@ -5,7 +5,7 @@
     <arg name="run_rplidar" default="true"/>
     <arg name="run_uvc_camera" default="false"/>
     <arg name="run_slam_gmapping" default="false"/>
-    
+
     <include file="$(find turtlebro)/launch/rosserial.launch" if="$(arg run_rosserial)"/>
     <include file="$(find turtlebro)/launch/robot_model.launch"/>
 
