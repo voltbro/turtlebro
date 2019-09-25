@@ -1,0 +1,6 @@
+#!/bin/sh
+
+/sbin/ifconfig > /boot/configs/ifconfig.dump
+cp /etc/wpa_supplicant/wpa_supplicant.conf /boot/configs/wpa_supplicant.dump
+cp /etc/hosts /boot/configs/hosts.dump
+cp /etc/hostname /boot/configs/hostname.dump

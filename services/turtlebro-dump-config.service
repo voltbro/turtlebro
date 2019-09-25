@@ -1,0 +1,13 @@
+[Unit]
+Description=Dump configuration
+#After=boot.mount
+After=getty.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/turtlebro-dump-config
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
