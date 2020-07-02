@@ -5,9 +5,9 @@ function log() {
   logger -s -p user.$1 ${@:2}
 }
 
-log info "turtlebro: Using workspace setup file /opt/ros/kinetic/setup.bash"
-source /opt/ros/kinetic/setup.bash
-JOB_FOLDER=/etc/ros/kinetic/turtlebro.d
+log info "turtlebro: Using workspace setup file /opt/ros/melodic/setup.bash"
+source /opt/ros/melodic/setup.bash
+JOB_FOLDER=/etc/ros/melodic/turtlebro.d
 
 log_path="/home/pi/.ros/log"
 if [[ ! -d $log_path ]]; then

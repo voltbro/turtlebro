@@ -212,7 +212,7 @@ install(FILES
 
 install(FILES
    launch/turtlebro.launch
-   DESTINATION /etc/ros/kinetic/turtlebro.d
+   DESTINATION /etc/ros/melodic/turtlebro.d
    PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ GROUP_WRITE WORLD_READ WORLD_WRITE
 )
 
