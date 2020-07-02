@@ -1,0 +1,7 @@
+<launch>
+
+    <arg name="device" default="/dev/video0"/>
+    <arg name="port" default="9999"/>
+
+    <node name="mjpg_camera" pkg="turtlebro" type="mjpg_streamer" args="$(arg device) $(arg port)" output="screen"/>
+</launch>

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Usage
+# mjpg_streamer <video_device> <http port>
+
+echo "Starting Camera $1 on http://$ROS_IP:$2/?action=stream"
+cd /home/pi/mjpg-streamer/mjpg-streamer-experimental
+./mjpg_streamer -i "./input_uvc.so -d $1 -r 640x480 -f 30" -o "./output_http.so -w ./www -p $2"
