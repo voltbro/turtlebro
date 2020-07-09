@@ -3,8 +3,10 @@
     <arg name="run_rosserial" default="true"/>
     <arg name="run_ydlidar" default="false"/>
     <arg name="run_rplidar" default="true"/>
+
+    <arg name="run_turtlebro_web" default="false"/>
     <arg name="run_uvc_camera" default="false"/>
-    <arg name="run_slam_gmapping" default="false"/>
+
 
     <include file="$(find turtlebro)/launch/rosserial.launch" if="$(arg run_rosserial)"/>
     <include file="$(find turtlebro)/launch/robot_model.launch"/>
@@ -13,6 +15,7 @@
 
     <include file="$(find turtlebro)/launch/ydlidar.launch" if="$(arg run_ydlidar)"/>
     <include file="$(find turtlebro)/launch/rplidar.launch" if="$(arg run_rplidar)"/>
-    <include file="$(find turtlebro_slam)/launch/slam_gmapping.launch" if="$(arg run_slam_gmapping)"/>
+
+    <include file="$(find turtlebro_web)/launch/turtlebro_web.launch" if="$(arg run_turtlebro_web)"/>
 
 </launch>
