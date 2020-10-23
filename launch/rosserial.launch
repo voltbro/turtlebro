@@ -10,8 +10,7 @@
         <param name="baud" value="$(arg stm_baud)"/>
         <param name="motor_inversion" value="1"/>
         <param name="wheel_distance" type="double" value="0.20"/>
-        
-
+        <param name="wheel_param" value="22500"/>
     </node>
 
     <node pkg="rosserial_python" type="serial_node.py" name="arduino_serial_node" output="log" respawn="true" respawn_delay="10">
