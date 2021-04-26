@@ -4,7 +4,7 @@
     <arg name="run_ydlidar" default="false"/>
     <arg name="run_rplidar" default="true"/>
 
-    <arg name="run_turtlebro_web" default="false"/>
+    <arg name="run_turtlebro_web" default="true"/>
     <arg name="run_uvc_camera" default="false"/>
 
 
