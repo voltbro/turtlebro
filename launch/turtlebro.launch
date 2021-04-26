@@ -5,13 +5,13 @@
     <arg name="run_rplidar" default="true"/>
 
     <arg name="run_turtlebro_web" default="true"/>
-    <arg name="run_uvc_camera" default="false"/>
+    <arg name="run_camera_ros" default="false"/>
 
 
     <include file="$(find turtlebro)/launch/rosserial.launch" if="$(arg run_rosserial)"/>
     <include file="$(find turtlebro)/launch/robot_model.launch"/>
 
-    <include file="$(find turtlebro)/launch/uvc_camera.launch" if="$(arg run_uvc_camera)"/>
+    <include file="$(find turtlebro)/launch/camera_ros.launch" if="$(arg run_camera_ros)"/>
 
     <include file="$(find turtlebro)/launch/ydlidar.launch" if="$(arg run_ydlidar)"/>
     <include file="$(find turtlebro)/launch/rplidar.launch" if="$(arg run_rplidar)"/>
