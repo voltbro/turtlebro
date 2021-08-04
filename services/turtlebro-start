@@ -30,8 +30,8 @@ machine_ip=$(hostname  -I | cut -f1 -d' ')
 #export ROS_HOSTNAME=$(hostname)
 export ROS_HOSTNAME=$machine_ip
 export ROVER_MODEL=turtlebro
-
 export ROS_IP=$machine_ip
+export ROVER_WHEEL_PARAM=22500
 
 #export ROS_MASTER_URI=http://127.0.0.1:11311
 export ROS_MASTER_URI=http://$machine_ip:11311

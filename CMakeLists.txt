@@ -200,11 +200,11 @@ install(PROGRAMS
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-install(PROGRAMS
-  services/turtlebro-start
-  services/turtlebro-stop
-  DESTINATION /usr/sbin/
-)
+#install(PROGRAMS
+#  services/turtlebro-start
+#  services/turtlebro-stop
+#  DESTINATION /usr/sbin/
+#)
 
 install(FILES
   services/turtlebro.service
