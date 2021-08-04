@@ -7,6 +7,7 @@
     <arg name="run_turtlebro_web" default="true"/>
     <arg name="run_camera_ros" default="false"/>
 
+    <arg name="run_simple_odom" default="true"/>
 
     <include file="$(find turtlebro)/launch/rosserial.launch" if="$(arg run_rosserial)"/>
     <include file="$(find turtlebro)/launch/robot_model.launch"/>
@@ -17,5 +18,7 @@
     <include file="$(find turtlebro)/launch/rplidar.launch" if="$(arg run_rplidar)"/>
 
     <include file="$(find turtlebro_web)/launch/turtlebro_web.launch" if="$(arg run_turtlebro_web)"/>
+
+    <include file="$(find turtlebro)/launch/simple_odom.launch" if="$(arg run_simple_odom)"/>
 
 </launch>

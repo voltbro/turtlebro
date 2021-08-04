@@ -195,6 +195,7 @@ include_directories(
 
 install(PROGRAMS
   src/odom_tf_broadcaster.py
+  src/simple_odom.py
   src/mjpg_streamer
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

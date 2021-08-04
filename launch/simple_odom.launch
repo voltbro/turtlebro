@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="turtlebro" type="simple_odom.py" name="simple_odom" output="log" respawn="true"/>
+</launch>
