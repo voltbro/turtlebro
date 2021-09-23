@@ -18,7 +18,7 @@ git clone https://github.com/voltbro/turtlebro
 
 ```bash
 cd ~/catkin_ws
-catkin_make --pkg=turtlebro
+catkin_make --pkg turtlebro
 ```
 
 Для работы, может понадобиться пакет `rosserial`. Если пакет не установлен, то его можно установить командой
