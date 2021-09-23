@@ -7,7 +7,7 @@
       <param name="width" value="640" />
       <param name="height" value="480" />
       <param name="format" value="jpeg" />
-      <param name="fps" value="30" />
+      <param name="fps" value="10" />
       <param name="brightness" value="20" />
       <param name="contrast" value="16" />
       <param name="saturation" value="60" />
