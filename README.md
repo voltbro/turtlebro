@@ -1,5 +1,9 @@
 # Пакет ROS для робота TurtleBro
 
+Текущая (master) ветка для ROS Noetic и python3
+
+Версия для ROS melodic в ветке [Melodic](https://github.com/voltbro/turtlebro/tree/melodic)
+
 
 ### Установка пакета на компьютер
 
