@@ -1,8 +1,10 @@
 <launch>
     <arg name="device" default="/dev/video0" />
+    <arg name="republish_raw" default="true"/>
 
     <node name="uvc_camera_node" pkg="uvc_camera" type="uvc_camera_node" output="screen">
-      <remap from="image_raw/compressed" to="front_camera/compressed" />
+      <remap from="image_raw/compressed" to="front_camera/image_raw/compressed" />
+      <remap from="camera_info" to="front_camera/camera_info" />
       <param name="device" value="$(arg device)" />
       <param name="width" value="640" />
       <param name="height" value="480" />
@@ -29,4 +31,8 @@
       <param name="horizontal_flip" value="0" />
       <param name="vertical_flip" value="0" /> -->
     </node>
+
+    <node if="$(arg republish_raw)" name="republish_raw" type="republish" pkg="image_transport" 
+	args="compressed in:=/front_camera/image_raw raw out:=/front_camera/image_raw" />
+
 </launch>
