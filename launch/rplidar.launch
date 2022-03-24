@@ -2,7 +2,7 @@
 <arg name="scan_mode" default="Boost"/>
 <!-- scan_modes is Standard Express Boost Sensitivity Stability -->
   <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="log" respawn="true" respawn_delay="10">
-      <param name="serial_port"         type="string" value="/dev/ttyUSB1"/>
+      <param name="serial_port"         type="string" value="/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0011-if00-port0"/>
       <param name="serial_baudrate"     type="int"    value="115200"/><!--A1/A2 -->
       <param name="frame_id"            type="string" value="base_scan"/>
       <param name="inverted"            type="bool"   value="false"/>
