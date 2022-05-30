@@ -1,11 +1,12 @@
 <launch>
+    <arg name="stm_node_start_delay" default="5.0" />
     <arg name="stm_device" default="/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0012-if00-port0"/>
     <arg name="stm_baud" default="460800"/>
 
     <arg name="arduino_device" default="/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0010-if00-port0"/>
     <arg name="arduino_baud" default="115200"/>
 
-    <node pkg="rosserial_python" type="serial_node.py" name="stm_serial_node" output="log" respawn="true" respawn_delay="10">
+    <node pkg="rosserial_python" type="serial_node.py" name="stm_serial_node" output="log" respawn="true" respawn_delay="10" launch-prefix="bash -c 'sleep $(arg stm_node_start_delay); $0 $@' ">
         <param name="port" value="$(arg stm_device)"/>
         <param name="baud" value="$(arg stm_baud)"/>
         <param name="wheel_param" value="$(optenv ROVER_WHEEL_PARAM 22500)"/>
