@@ -11,6 +11,7 @@ JOB_FOLDER=/etc/ros/turtlebro.d
 
 source /home/pi/.ros_params
 source /opt/ros/noetic/setup.bash
+source /home/pi/ros_extra/devel/setup.bash
 source /home/pi/catkin_ws/devel/setup.bash
 
 log_path="/home/pi/.ros/log"
