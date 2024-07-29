@@ -10,7 +10,7 @@
     <include file="$(find turtlebro)/launch/rosserial.launch" if="$(arg run_rosserial)"/>
     <include file="$(find turtlebro)/launch/robot_model.launch"/>
 
-    <include file="$(find turtlebro)/launch/camera_ros.launch" if="$(arg run_camera_ros)"/>
+    <include file="$(find turtlebro)/launch/camera_usb_cam.launch" if="$(arg run_camera_ros)"/>
 
     <include file="$(find turtlebro)/launch/rplidar.launch" if="$(arg run_rplidar)"/>
 

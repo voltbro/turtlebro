@@ -220,6 +220,7 @@ install(FILES
 install(DIRECTORY
   launch
   urdf
+  config
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
