@@ -1,38 +1,27 @@
 <launch>
-    <arg name="device" default="/dev/video0" />
+    <arg name="first_device" default="/dev/video0" />
     <arg name="republish_raw" default="true"/>
 
-    <node name="uvc_camera_node" pkg="uvc_camera" type="uvc_camera_node" output="screen">
-      <remap from="image_raw/compressed" to="front_camera/image_raw/compressed" />
-      <remap from="camera_info" to="front_camera/camera_info" />
-      <param name="device" value="$(arg device)" />
+    <!-- Первая камера -->
+    <node name="first_camera" pkg="uvc_camera" type="uvc_camera_node" output="screen">
+      <remap from="image_raw" to="first_camera/image_raw" />
+      <remap from="camera_info" to="first_camera/camera_info" />
+      <param name="device" value="$(arg first_device)" />
       <param name="width" value="640" />
       <param name="height" value="480" />
-      <param name="format" value="jpeg" />
-      <param name="fps" value="10" />
-      <param name="brightness" value="20" />
-      <param name="contrast" value="16" />
-      <param name="saturation" value="60" />
-      <!-- <param name="power_line_frequency" value="60"/>
-      <param name="auto_exposure" value="0" />
-      <param name="exposure_absolute" value="75" />
-      <param name="exposure_auto_priority" value="0" />
-      <param name="auto_white_balance" value="0" />
-
-      <param name="auto_focus" value="0" />
-      <param name="focus_absolute" value="0" />
-
-      <param name="hue" value="0" />
-      <param name="gamma" value="100" />
-      <param name="sharpness" value="3" />
-      <param name="backlight_compensation" value="2" />
-      <param name="gain" value="30" />
-      <param name="auto_gain" value="0" />
-      <param name="horizontal_flip" value="0" />
-      <param name="vertical_flip" value="0" /> -->
+      <param name="format" value="raw" />
+      <param name="fps" value="5" />
+      <param name="brightness" value="0" />
+      <param name="contrast" value="0" />
+      <param name="saturation" value="66" />
+      <param name="image_raw/compressed/jpeg_quality" value="25"/>
+      <param name="image_raw/compressed/jpeg_progressive" value="true"/>
+      <param name="image_raw/compressed/jpeg_optimize" value="true"/>
     </node>
 
-    <node if="$(arg republish_raw)" name="republish_raw" type="republish" pkg="image_transport" 
-	args="compressed in:=/front_camera/image_raw raw out:=/front_camera/image_raw" />
+
+    <!-- Републикация изображений для первой камеры -->
+    <!--node if="$(arg republish_raw)" name="republish_raw" type="republish" pkg="image_transport" 
+	args="raw in:=/first_camera/image_raw compressed out:=/first_camera/image_raw" /-->
 
 </launch>

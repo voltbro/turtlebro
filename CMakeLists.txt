@@ -55,6 +55,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
    FILES
    RawOdom.msg
+   WiFi.msg   
 )
 
 ## Generate services in the 'srv' folder
@@ -194,6 +195,7 @@ include_directories(
 # )
 
 install(PROGRAMS
+  src/wifi.py
   src/odom_tf_broadcaster.py
   src/simple_odom.py
   src/mjpg_streamer
@@ -211,11 +213,11 @@ install(FILES
   DESTINATION /lib/systemd/system
 )
 
-install(FILES
-   launch/turtlebro.launch
-   DESTINATION /etc/ros/turtlebro.d
-   PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ GROUP_WRITE WORLD_READ WORLD_WRITE
-)
+#install(FILES
+#   launch/turtlebro.launch
+#   DESTINATION /etc/ros/turtlebro.d
+#   PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ GROUP_WRITE WORLD_READ WORLD_WRITE
+#)
 
 install(DIRECTORY
   launch

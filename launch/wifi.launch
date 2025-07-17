@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="turtlebro" type="wifi.py" name="wifi_signal_publisher" output="log" respawn="true"/>
+</launch>
